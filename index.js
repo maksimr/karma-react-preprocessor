@@ -4,6 +4,8 @@
  */
 var ReactPreprocessor = function(args, config, logger) {
     var log = logger.create('preprocessor.react');
+    config = config || {};
+
     var transformPath = args.transformPath || config.transformPath || function(filepath) {
         return filepath.replace(/\.jsx$/, '.js');
     };
