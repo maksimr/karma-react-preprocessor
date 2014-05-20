@@ -1,0 +1,44 @@
+{
+  "name": "karma-react-preprocessor",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maksimr/karma-react-preprocessor.git"
+  },
+  "keywords": [
+    "karma-plugin",
+    "karma-preprocessor",
+    "jsx",
+    "react"
+  ],
+  "author": {
+    "name": "Maksim Ryzhikov",
+    "email": "rv.maksim@gmail.com"
+  },
+  "peerDependencies": {
+    "karma": ">=0.12",
+    "react-tools": ">=0.1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-npm": "~0.0.2",
+    "grunt-bump": "~0.0.7",
+    "grunt-auto-release": "~0.0.2",
+    "load-grunt-tasks": "~0.2.0",
+    "grunt-cli": "~0.1.9",
+    "grunt": "~0.4.1",
+    "mocha": "~1.8",
+    "grunt-simple-mocha": "~0.4",
+    "grunt-karma": "~0.7",
+    "chai": "~1.5",
+    "react-tools": ">=0.1"
+  },
+  "contributors": []
+}
