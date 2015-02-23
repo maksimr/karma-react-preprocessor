@@ -40,5 +40,7 @@
     "chai": "~1.5",
     "react-tools": ">=0.12"
   },
-  "contributors": []
+  "contributors": [
+    "Adam Pohorecki <adam@pohorecki.pl>"
+  ]
 }
