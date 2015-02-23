@@ -26,7 +26,7 @@ describe('hello-message', function() {
         var file = new FileMock('test.jsx');
 
         this.preprocessor('/** @jsx React.DOM */ <div>Test</div>;', file, function(content) {
-            expect(content).to.be.equal('/** @jsx React.DOM */ React.DOM.div(null, "Test");');
+            expect(content).to.be.equal('/** @jsx React.DOM */ React.createElement("div", null, "Test");');
         });
     });
 
