@@ -52,6 +52,21 @@ module.exports = function(config) {
 };
 ```
 
+You can enable ES6 features by setting harmony option to true:
+```js
+// karma.conf.js
+module.exports = function(config) {
+  config.set({
+    preprocessors: {
+      '**/*.jsx': ['react']
+    },
+    reactPreprocessor: {
+        harmony: true
+    }
+  });
+};
+```
+
 You can look at karma.conf.js how example
 
 For more information on Karma see the [homepage].
