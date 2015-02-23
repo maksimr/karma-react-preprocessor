@@ -26,7 +26,7 @@ describe('hello-message', function() {
         var file = new FileMock('test.jsx');
 
         this.preprocessor('/** @jsx React.DOM */ <div>Test</div>;', file, function(content) {
-            expect(content).to.be.equal('/** @jsx React.DOM */ React.DOM.div(null, "Test");');
+            expect(content).to.be.equal('/** @jsx React.DOM */ React.createElement("div", null, "Test");');
         });
     });
 
@@ -49,5 +49,16 @@ describe('hello-message', function() {
         this.preprocessor('', file, function() {});
 
         expect(file.path).to.be.equal('test.ext');
+    });
+
+    it('should allow to pass harmony option', function() {
+        var file = new FileMock('test.jsx');
+        this.preprocessor = new ReactPreprocessor({}, {
+            harmony: true,
+        }, new LoggerMock());
+
+        this.preprocessor('<div onClick={e => alert(e)} />', file, function(content) {
+            expect(content).to.be.equal('React.createElement("div", {onClick: (function(e)  {return alert(e);})})');
+        });
     });
 });
