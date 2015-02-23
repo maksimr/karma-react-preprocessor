@@ -14,7 +14,7 @@ var ReactPreprocessor = function(args, config, logger) {
         log.debug('Processing "%s".', file.originalPath);
         file.path = transformPath(file.originalPath);
 
-        done(require('react-tools').transform(content));
+        done(require('react-tools').transform(content, {harmony: config.harmony}));
     };
 };
 

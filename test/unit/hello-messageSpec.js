@@ -50,4 +50,15 @@ describe('hello-message', function() {
 
         expect(file.path).to.be.equal('test.ext');
     });
+
+    it('should allow to pass harmony option', function() {
+        var file = new FileMock('test.jsx');
+        this.preprocessor = new ReactPreprocessor({}, {
+            harmony: true,
+        }, new LoggerMock());
+
+        this.preprocessor('<div onClick={e => alert(e)} />', file, function(content) {
+            expect(content).to.be.equal('React.createElement("div", {onClick: (function(e)  {return alert(e);})})');
+        });
+    });
 });
