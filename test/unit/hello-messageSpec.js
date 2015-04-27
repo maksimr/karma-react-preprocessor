@@ -1,4 +1,5 @@
 var chai = require('chai');
+var proxyquire = require('proxyquire');
 var expect = chai.expect;
 var ReactPreprocessor = require("../../index.js")['preprocessor:react'][1];
 var FileMock = function(originalPath) {
@@ -11,6 +12,11 @@ var LoggerMock = function() {
             debug: function() {}
         };
     };
+};
+var ReactToolsMock = {
+    transform: function(content, options) {
+        this.options = options;
+    }
 };
 
 describe('hello-message', function() {
@@ -59,6 +65,23 @@ describe('hello-message', function() {
 
         this.preprocessor('<div onClick={e => alert(e)} />', file, function(content) {
             expect(content).to.be.equal('React.createElement("div", {onClick: (function(e)  {return alert(e);})})');
+        });
+    });
+
+    it('should pass options object to react-tools', function() {
+        var expectedOptions = {
+            harmony: true,
+            es6module: true
+        };
+        var file = new FileMock('test.jsx');
+        var ReactPreprocessor = proxyquire("../../index.js", {
+            'react-tools': ReactToolsMock
+        })['preprocessor:react'][1];
+
+        this.preprocessor = new ReactPreprocessor({}, expectedOptions, new LoggerMock());
+
+        this.preprocessor('<div onClick={e => alert(e)} />', file, function() {
+            expect(ReactToolsMock.options).to.be.equal(expectedOptions);
         });
     });
 });
