@@ -52,7 +52,7 @@ module.exports = function(config) {
 };
 ```
 
-You can enable ES6 features by setting harmony option to true:
+You can pass an options object that will be passed to react-tools module. [See available options](https://www.npmjs.com/package/react-tools#api).
 ```js
 // karma.conf.js
 module.exports = function(config) {
@@ -61,7 +61,8 @@ module.exports = function(config) {
       '**/*.jsx': ['react']
     },
     reactPreprocessor: {
-        harmony: true
+        harmony: true,
+        es6module: true
     }
   });
 };
