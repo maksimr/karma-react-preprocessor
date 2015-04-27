@@ -38,6 +38,7 @@
     "react-tools": ">=0.13"
   },
   "contributors": [
-    "Adam Pohorecki <adam@pohorecki.pl>"
+    "Adam Pohorecki <adam@pohorecki.pl>",
+    "Abiee Alejandro Echamea Márquez <abiee.alejandro@gmail.com>"
   ]
 }
